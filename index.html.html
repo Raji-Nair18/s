@@ -1,0 +1,227 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00NTItZi0wMTQuanBn.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+    }
+
+    header {
+      background: #5D3A00; /* Brown background */
+      color: white;       /* White text */
+      width: 60%;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+ margin-top: 2rem;
+
+    }
+
+    .letters-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 8rem;
+    }
+
+    .letters-container button {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+      border: none;
+      background-color: #5D3A00; /* Dark brown */
+      border-radius: 50%;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .letters-container button:hover {
+      background-color: #432900; /* Darker brown on hover */
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .music-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      width: 300px;
+      padding: 1rem;
+      margin: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      color: #333;
+    }
+
+    .music-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+
+    .music-card h3 {
+      margin-top: 0;
+      color: #4a90e2;
+    }
+
+    .music-card p {
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #5D3A00; /* Brown quote color */
+    }
+
+    .play-btn {
+      padding: 0.5rem 1rem;
+      background-color: #5D3A00; /* Dark brown */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .play-btn:hover {
+      background-color: #432900; /* Darker brown */
+    }
+
+    audio {
+      width: 100%;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <header>HAPPY BIRTHDAY SHANTANU SIR !!</header>
+
+  <div class="letters-container">
+    <button onclick="showCard('S')">S</button>
+    <button onclick="showCard('H')">H</button>
+    <button onclick="showCard('A')">A</button>
+    <button onclick="showCard('N')">N</button>
+    <button onclick="showCard('T')">T</button>
+    <button onclick="showCard('A1')">A</button>
+    <button onclick="showCard('N1')">N</button>
+    <button onclick="showCard('U')">U</button>
+    <button onclick="showCard('R')">R</button>
+    <button onclick="showCard('P')">P</button>
+    <button onclick="showCard('A2')">A</button>
+    <button onclick="showCard('L')">L</button>
+  </div>
+
+  <div class="card-container" id="cards">
+    <!-- Music cards appear here -->
+  </div>
+
+  <script>
+    const cardsContainer = document.getElementById('cards');
+
+    const musicData = {
+      S: {
+        music: "SAYDAGAR SAUDA KAR",
+        quote: "Stars could fall from the sky, but none would shine brighter than your eyes.",
+        audio: "https://pagalfree.com/musics/128-Saudagar%20Sauda%20Kar%20-%20Saudagar%20128%20Kbps.mp3"
+      },
+      H: { 
+        music: "HUMKO HUMISE CHURA LO", 
+        quote: "Heaven must be missing an angel—because I found you.",
+        audio: "https://pagalfree.com/musics/128-Humko%20Humise%20Chura%20Lo%20-%20Mohabbatein%20128%20Kbps.mp3"
+      },
+      A: { 
+        music: "AANKHON SE TUNE KYA KEH DIYA",
+        quote: "All of me belongs to you, always and completely.",
+        audio: "https://koshalworld.com/files/download/id/27399"
+      },
+      N: { 
+        music: "NAZAR KE SAAMNE",
+        quote: "Next to you is my favorite place to be." ,
+        audio: "https://pagalfree.com/musics/128-Nazar%20Ke%20Samne%20-%20Aashiqui%20128%20Kbps.mp3"
+      },
+      T: { 
+        music: "TUM DIL KI DHADKAN MEIN",
+        quote: "Time means nothing when I’m lost in your eyes.",
+        audio: "https://pagalfree.com/musics/128-Tum%20Dil%20Ki%20Dhadkan%20Mein%20-%20Dhadkan%20128%20Kbps.mp3"
+      },
+      A1: { 
+        music: "ABHI SAANS LENE KI FURSAT NAHI HAI",
+        quote: "A moment with you is worth more than a lifetime without.",
+        audio: "https://koshalworld.com/files/download/id/45963"
+      },
+      N1: { 
+        music: "NA NA KARTE PYAAR",
+        quote: "Night after night, I fall asleep thinking of you.",
+        audio: "https://pagalfree.com/musics/128-Na%20Na%20Karte%20Pyar%20-%20Dhadkan%20128%20Kbps.mp3"
+      },
+      U: { 
+        music: "UTHEGI TUMHARI NAZAR DHEERE DHEERE",
+        quote: "Us together—that's my favorite story.",
+        audio: "https://pagalfree.com/musics/128-Uthegi%20Tumhari%20Nazar%20Dheere%20Dheere%20-%20Ek%20Raaz%20128%20Kbps.mp3"
+      },
+      R: { 
+        music: "ROOTH NA JAANA",
+        quote: "Reaching for your hand feels like touching home.",
+        audio: "https://pagalfree.com/musics/128-Rooth%20Na%20Jana%20-%201942%20A%20Love%20Story%20128%20Kbps.mp3"
+      },
+      P: { 
+        music: "PEHLA NASHA",
+        quote: "Perfection exists—and I see it every time I look at you.",
+        audio: "https://pagalfree.com/musics/128-Pehla%20Nasha%20-%20Jo%20Jeeta%20Wohi%20Sikandar%20128%20Kbps.mp3"
+      },
+      A2: { 
+        music: "AA KAHIN DOOR CHALE",
+        quote: "A thousand lifetimes wouldn’t be enough to love you the way you deserve.",
+        audio: "https://koshalworld.com/files/download/id/16321"
+      },
+      L: { 
+        music: "LIKHE JO KHAT TUJHE",
+        quote: "Life is really simple, but we insist on making it complicated.",
+        audio: "https://pagalfree.com/musics/128-Likhe%20Jo%20Khat%20Tujhe%20-%20Kanyadaan%20128%20Kbps.mp3"
+      }
+    };
+
+    function showCard(letter) {
+      cardsContainer.innerHTML = '';
+      const data = musicData[letter];
+
+      if (!data) {
+        cardsContainer.innerHTML = `<p>No music or quote found for ${letter}.</p>`;
+        return;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'music-card';
+      card.innerHTML = `
+        <h3>${data.music}</h3>
+        <p>"${data.quote}"</p>
+        ${data.audio ? `
+          <button class="play-btn" onclick="document.getElementById('audio-${letter}').play()">Start</button>
+          <audio id="audio-${letter}" src="${data.audio}" controls></audio>
+        ` : ''}
+      `;
+      cardsContainer.appendChild(card);
+    }
+  </script>
+</body>
+</html>
