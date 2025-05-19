@@ -6,7 +6,7 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00NTItZi0wMTQuanBn.jpg');
+      background-image: url('https://png.pngtree.com/background/20220714/original/pngtree-cartoon-notes-aesthetic-sky-background-picture-image_1615881.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -16,7 +16,53 @@
       align-items: center;
       color: #fff;
     }
+.balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 60px;
+      height: 80px;
+      background: red;
+      border-radius: 30px 30px 30px 30px;
+      animation: fly 10s linear infinite;
+    }
 
+    .string {
+      position: absolute;
+      top: 80px;
+      left: 29px;
+      width: 2px;
+      height: 50px;
+      background: #444;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(5deg);
+        opacity: 0;
+      }
+    }
+
+    /* Multiple balloons with different delays and positions */
+    .balloon:nth-child(1) {
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .balloon:nth-child(2) {
+      left: 50%;
+      animation-delay: 3s;
+      background: orange;
+    }
+
+    .balloon:nth-child(3) {
+      left: 75%;
+      animation-delay: 6s;
+      background: pink;
+    }
     header {
       background: #5D3A00; /* Brown background */
       color: white;       /* White text */
@@ -25,6 +71,7 @@
       text-align: center;
       font-size: 1.5rem;
       font-weight: bold;
+      animation: pop 1s ease-in-out infinite;
  margin-top: 2rem;
 
     }
