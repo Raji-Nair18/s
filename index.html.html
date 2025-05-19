@@ -332,5 +332,16 @@
       cardsContainer.appendChild(card);
     }
   </script>
+  <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="module">
+      import { DotLottie } from "<https://app.lottiefiles.com/share/c81b3c70-12f2-48e8-9c1a-98a5ce785d14>";
+
+      new DotLottie({
+        autoplay: true,
+        loop: true,
+        canvas: document.getElementById("canvas"),
+        src: "https://app.lottiefiles.com/share/c81b3c70-12f2-48e8-9c1a-98a5ce785d14", // replace with your .lottie or .json file URL
+      });
+    </script>
   </body>
 </html>
