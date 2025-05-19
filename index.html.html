@@ -64,52 +64,36 @@
       animation-delay: 6s;
       background: pink;
     }
-    /* Sparkle Styling */
     .sparkle {
       position: absolute;
-      width: 6px;
-      height: 6px;
+      width: 4px;
+      height: 4px;
       background: red;
       border-radius: 50%;
-      box-shadow: 0 0 6px 3px red;
-      animation: sparkle 2s linear infinite;
+      opacity: 0.8;
+      animation: sparkleMove 10s linear infinite, sparkleFade 2s ease-in-out infinite alternate;
     }
 
-    @keyframes sparkle {
+    /* Movement animation */
+    @keyframes sparkleMove {
       0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
+        transform: translateY(0);
       }
       100% {
-        transform: translateY(-100vh) scale(0.5);
-        opacity: 0;
+        transform: translateY(-120vh);
       }
     }
 
-    /* Random sparkle positions and delays */
-    .sparkle:nth-child(4) {
-      left: 10%;
-      animation-delay: 0s;
-    }
-
-    .sparkle:nth-child(5) {
-      left: 30%;
-      animation-delay: 1s;
-    }
-
-    .sparkle:nth-child(6) {
-      left: 60%;
-      animation-delay: 2s;
-    }
-
-    .sparkle:nth-child(7) {
-      left: 80%;
-      animation-delay: 3s;
-    }
-
-    .sparkle:nth-child(8) {
-      left: 90%;
-      animation-delay: 4s;
+    /* Fading twinkle effect */
+    @keyframes sparkleFade {
+      0% {
+        opacity: 0.2;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1.5);
+      }
     }
     header {
       background: #5D3A00; /* Brown background */
@@ -214,12 +198,19 @@
   <div class="balloon"><div class="string"></div></div>
   <div class="balloon"><div class="string"></div></div>
   <div class="letters-container">
-      <!-- Sparkles -->
-  <div class="sparkle"></div>
-  <div class="sparkle"></div>
-  <div class="sparkle"></div>
-  <div class="sparkle"></div>
-  <div class="sparkle"></div>
+     <!-- Sparkles -->
+  <script>
+    const count = 100;
+    for (let i = 0; i < count; i++) {
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.left = `${Math.random() * 100}vw`;
+      sparkle.style.top = `${Math.random() * 100}vh`;
+      sparkle.style.animationDelay = `${Math.random() * 5}s`;
+      sparkle.style.animationDuration = `${5 + Math.random() * 10}s`;
+      document.body.appendChild(sparkle);
+    }
+  </script>
     <button onclick="showCard('S')">S</button>
     <button onclick="showCard('H')">H</button>
     <button onclick="showCard('A')">A</button>
